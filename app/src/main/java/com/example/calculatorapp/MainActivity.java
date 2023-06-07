@@ -19,6 +19,7 @@ import com.example.calculatorapp.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,14 +29,16 @@ public class MainActivity extends AppCompatActivity {
 
     EditText e1,e2;
     String s1,s2;
-    int n1, n2;
+    int n1,n2;
+    TextView myTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
          setContentView(R.layout.activity_main);
-        e1 = findViewById(R.id.editTextText4);
-        e2 = findViewById(R.id.editTextText5);
+        e1 = findViewById(R.id.editTextText8);
+        e2 = findViewById(R.id.editTextText9);
+        myTextView = findViewById(R.id.textView5);
     }
 
     @Override
@@ -75,7 +78,47 @@ public class MainActivity extends AppCompatActivity {
         n1 = Integer.parseInt(s1);
         n2 = Integer.parseInt(s2);
 
-        int sum = n1+n2;
-        Toast.makeText(this, String.valueOf(sum), Toast.LENGTH_LONG).show();
+        Integer sum = n1+n2;
+        myTextView.setText(sum.toString());
+       // Toast.makeText(this, String.valueOf(sum), Toast.LENGTH_LONG).show();
+    }
+
+    public void difference(View v)
+    {
+        s1 = e1.getText().toString();
+        s2 = e2.getText().toString();
+
+        n1 = Integer.parseInt(s1); n2 = Integer.parseInt(s2);
+        // convert to integer
+
+        Integer difference = n1-n2;
+        myTextView.setText(difference.toString());
+
+       // Toast.makeText(this,String.valueOf(difference),Toast.LENGTH_LONG).show();
+    }
+
+    public void product(View v)
+    {
+        s1 = e1.getText().toString();
+        s2 = e2.getText().toString();
+
+        n1 = Integer.parseInt(s1);
+        n2 = Integer.parseInt(s2);
+
+        Integer product = n1*n2;
+        myTextView.setText(product.toString());
+    }
+
+    public void divide(View v)
+    {
+        s1 = e1.getText().toString();
+        s2 = e2.getText().toString();
+
+        n1 = Integer.parseInt(s1);
+        n2 = Integer.parseInt(s2);
+
+        Integer quotient = n1/n2;
+        myTextView.setText(quotient.toString());
+
     }
 }
